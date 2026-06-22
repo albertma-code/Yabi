@@ -73,7 +73,7 @@ def dispatch(req: dict[str, Any]) -> Iterator[dict[str, Any]]:
     if cmd == "download":
         url = args.get("url")
         format_id = args.get("format_id")
-        output_dir = os.path.expanduser(args.get("output_dir") or "~/Downloads/Yabi")
+        output_dir = os.path.expanduser(args.get("output_dir") or "~/Downloads/Bilio")
         cookies_from_browser = args.get("cookies_from_browser")
         if not url or not isinstance(url, str):
             yield {"id": rid, "type": "error", "error": "missing or invalid 'url'"}

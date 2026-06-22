@@ -16,7 +16,7 @@ mkdir -p "$OUT_DIR" "$WORK_DIR"
 # which is why the Rust shell spawns this once at startup and keeps it alive.
 "$ROOT/.venv/bin/pyinstaller" \
     --onefile \
-    --name yabi-sidecar \
+    --name bilio-sidecar \
     --distpath "$WORK_DIR/dist" \
     --workpath "$WORK_DIR/work" \
     --specpath "$WORK_DIR" \
@@ -25,8 +25,8 @@ mkdir -p "$OUT_DIR" "$WORK_DIR"
     "$ROOT/sidecar/main.py"
 
 # Tauri looks for `<base>-<triple>` next to tauri.conf.json's externalBin entry.
-DEST="$OUT_DIR/yabi-sidecar-$TRIPLE"
-cp "$WORK_DIR/dist/yabi-sidecar" "$DEST"
+DEST="$OUT_DIR/bilio-sidecar-$TRIPLE"
+cp "$WORK_DIR/dist/bilio-sidecar" "$DEST"
 chmod +x "$DEST"
 
 echo "Built: $DEST"

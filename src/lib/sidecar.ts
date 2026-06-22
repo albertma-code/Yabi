@@ -3,7 +3,7 @@ import { listen, type UnlistenFn } from "@tauri-apps/api/event";
 
 // ── Sidecar message types ──────────────────────────────────────────────
 
-/** Mirror of the JSONL message shape from sidecar/yabi_sidecar/io.py. */
+/** Mirror of the JSONL message shape from sidecar/bilio_sidecar/io.py. */
 export interface SidecarMessage {
   id: number | null;
   type: string;

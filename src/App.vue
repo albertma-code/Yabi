@@ -28,9 +28,9 @@ import {
 
 const sidecarReady = ref(false);
 const settingsOpen = ref(false);
-const downloadDir = ref(localStorage.getItem("yabi-download-dir") ?? "~/Downloads/Yabi");
+const downloadDir = ref(localStorage.getItem("bilio-download-dir") ?? "~/Downloads/Bilio");
 const cookiesBrowser = ref<string | null>(
-  localStorage.getItem("yabi-cookies-browser") || null,
+  localStorage.getItem("bilio-cookies-browser") || null,
 );
 
 /** Result of the most recent `check_cookies` probe. */
@@ -87,13 +87,13 @@ watch(cookiesBrowser, (val) => {
 
 function saveDownloadDir(val: string) {
   downloadDir.value = val;
-  localStorage.setItem("yabi-download-dir", val);
+  localStorage.setItem("bilio-download-dir", val);
 }
 
 function saveCookiesBrowser(val: string | null) {
   cookiesBrowser.value = val || null;
-  if (val) localStorage.setItem("yabi-cookies-browser", val);
-  else localStorage.removeItem("yabi-cookies-browser");
+  if (val) localStorage.setItem("bilio-cookies-browser", val);
+  else localStorage.removeItem("bilio-cookies-browser");
 }
 </script>
 
@@ -103,7 +103,7 @@ function saveCookiesBrowser(val: string | null) {
       <n-layout style="min-height: 100vh">
         <n-layout-header bordered class="header">
           <div class="brand">
-            <h1>Yabi</h1>
+            <h1>Bilio</h1>
             <span class="tagline">基于 yt-dlp 的 B站视频下载 GUI</span>
           </div>
           <div class="header-right">
@@ -130,7 +130,7 @@ function saveCookiesBrowser(val: string | null) {
               <n-input
                 :value="downloadDir"
                 @update:value="saveDownloadDir"
-                placeholder="~/Downloads/Yabi"
+                placeholder="~/Downloads/Bilio"
                 size="small"
               />
             </n-descriptions-item>
@@ -183,9 +183,9 @@ function saveCookiesBrowser(val: string | null) {
             </n-descriptions-item>
           </n-descriptions>
           <p class="settings-note">
-            选择浏览器后，Yabi 会读取该浏览器中已登录 B站的 cookies，从而解析/下载
+            选择浏览器后，Bilio 会读取该浏览器中已登录 B站的 cookies，从而解析/下载
             账号有权限访问的清晰度或仅登录可见的视频。Cookies 仅在本机使用，不上传任何位置。
-            Yabi 不支持破解、DRM 解密或绕过付费验证。
+            Bilio 不支持破解、DRM 解密或绕过付费验证。
           </p>
         </n-drawer-content>
       </n-drawer>

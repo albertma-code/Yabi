@@ -1,6 +1,6 @@
 import unittest
 
-from yabi_sidecar.ytdlp import _best_video_format, _format_label, _format_with_audio
+from bilio_sidecar.ytdlp import _best_video_format, _format_label, _format_with_audio
 
 
 class FormatWithAudioTest(unittest.TestCase):

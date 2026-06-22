@@ -1,7 +1,7 @@
-//! Yabi — Tauri shell that owns the Python sidecar process.
+//! Bilio — Tauri shell that owns the Python sidecar process.
 //!
 //! Architecture: the Rust shell spawns a single long-lived Python sidecar
-//! (`binaries/yabi-sidecar-<target-triple>`, built via `sidecar/build.sh`) and
+//! (`binaries/bilio-sidecar-<target-triple>`, built via `sidecar/build.sh`) and
 //! brokers JSONL requests/responses between the Vue frontend and yt-dlp.
 //!
 //! - Request flow:  frontend `invoke("ping_sidecar")` → Rust assigns an id,
@@ -10,7 +10,7 @@
 //! - Unsolicited messages (`id == null`, e.g. `ready` / future `log`) are
 //!   forwarded to the frontend as a Tauri event `sidecar://message`.
 //!
-//! Protocol details live in `sidecar/yabi_sidecar/rpc.py`.
+//! Protocol details live in `sidecar/bilio_sidecar/rpc.py`.
 
 use std::collections::HashMap;
 use std::sync::atomic::{AtomicU64, Ordering};
@@ -52,7 +52,7 @@ impl SidecarState {
 fn spawn_sidecar(app: &AppHandle, state: &SidecarState) -> Result<(), String> {
     let (mut rx, child) = app
         .shell()
-        .sidecar("yabi-sidecar")
+        .sidecar("bilio-sidecar")
         .map_err(|e| format!("sidecar not found: {e}"))?
         .spawn()
         .map_err(|e| format!("failed to spawn sidecar: {e}"))?;

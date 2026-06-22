@@ -21,7 +21,7 @@ from yt_dlp import YoutubeDL
 # bilibili's WAF requires for anonymous metadata fetches; without Origin the
 # extractor still 412s on the JSON metadata endpoint (verified against current
 # yt-dlp extractor). Cookie-gated content still needs the user's own local
-# browser cookies; Yabi reuses that login state without storing cookie contents.
+# browser cookies; Bilio reuses that login state without storing cookie contents.
 _DEFAULT_HTTP_HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "

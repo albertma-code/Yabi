@@ -1,17 +1,17 @@
-# Yabi
+# Bilio
 
 一个面向 macOS 桌面的 B站视频下载工具。基于开源的 [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) 下载能力，包装成更易用、更好看的图形界面（GUI）应用。
 
-![Yabi 主界面](docs/screenshots/main.png)
+![Bilio 主界面](docs/screenshots/main.png)
 
-![Yabi](https://img.shields.io/badge/license-MIT-blue) ![macOS arm64](https://img.shields.io/badge/macOS-arm64-black) ![Tauri 2](https://img.shields.io/badge/Tauri-2-orange)
+![Bilio](https://img.shields.io/badge/license-MIT-blue) ![macOS arm64](https://img.shields.io/badge/macOS-arm64-black) ![Tauri 2](https://img.shields.io/badge/Tauri-2-orange)
 
 ## 架构
 
 ```
-Yabi.app/Contents/MacOS/
-├── yabi          # Tauri 2 (Rust) 壳 + Vue 3 + TS + Naive UI 前端
-└── yabi-sidecar  # PyInstaller --onefile：yt-dlp + ffmpeg
+Bilio.app/Contents/MacOS/
+├── bilio          # Tauri 2 (Rust) 壳 + Vue 3 + TS + Naive UI 前端
+└── bilio-sidecar  # PyInstaller --onefile：yt-dlp + ffmpeg
 ```
 
 三层之间用 **JSONL over stdio** 通信。下载进度由 `yt-dlp` 的 `progress_hooks` 推到 Python 工作线程，加锁写到 stdout，Rust 监听协程按行解析，转成 Tauri event 给前端实时更新。
@@ -48,16 +48,16 @@ npm run tauri dev
 
 # 打包发布
 npm run tauri build
-# 产物：src-tauri/target/release/bundle/{macos/Yabi.app, dmg/Yabi_*.dmg}
+# 产物：src-tauri/target/release/bundle/{macos/Bilio.app, dmg/Bilio_*.dmg}
 ```
 
 ## 安装
 
 发布版本（macOS arm64，Apple Silicon）：
 
-1. 从 [Releases](https://github.com/albertma-code/Yabi/releases) 下载 `Yabi_<version>_aarch64.dmg`
-2. 打开 DMG，把 `Yabi.app` 拖到"应用程序"
-3. 首次启动如果 macOS 提示「无法验证开发者」：右键 → 打开 → 仍然打开（Yabi 使用本机 ad-hoc 签名，未注册 Apple Developer 程序）
+1. 从 [Releases](https://github.com/albertma-code/Bilio/releases) 下载 `Bilio_<version>_aarch64.dmg`
+2. 打开 DMG，把 `Bilio.app` 拖到"应用程序"
+3. 首次启动如果 macOS 提示「无法验证开发者」：右键 → 打开 → 仍然打开（Bilio 使用本机 ad-hoc 签名，未注册 Apple Developer 程序）
 
 ## 安全与隐私
 
@@ -71,10 +71,10 @@ npm run tauri build
 
 仓库已默认忽略 `downloads/`、`.venv/`、`node_modules/`、`src-tauri/target/`、`src-tauri/binaries/*-*`、各种 cookies/cookie 文件名等。
 
-Yabi 仅用于保存用户本人有权访问的内容，不支持破解、DRM 解密或绕过付费验证。
+Bilio 仅用于保存用户本人有权访问的内容，不支持破解、DRM 解密或绕过付费验证。
 
 ## 许可证
 
 本项目基于 [MIT](LICENSE) 许可证开源。
 
-下载能力由 [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) 提供（其自身的许可证适用）。Yabi 仅为其提供图形界面封装。
+下载能力由 [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) 提供（其自身的许可证适用）。Bilio 仅为其提供图形界面封装。

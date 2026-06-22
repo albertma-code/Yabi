@@ -1,5 +1,5 @@
 """PyInstaller entry point — invoked as the single-file Mach-O binary."""
-from yabi_sidecar.rpc import main
+from bilio_sidecar.rpc import main
 
 
 if __name__ == "__main__":

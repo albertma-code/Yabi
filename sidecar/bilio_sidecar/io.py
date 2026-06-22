@@ -24,5 +24,5 @@ def emit(obj: dict[str, Any]) -> None:
 
 
 def log_stderr(msg: str) -> None:
-    sys.stderr.write(f"[yabi-sidecar] {msg}\n")
+    sys.stderr.write(f"[bilio-sidecar] {msg}\n")
     sys.stderr.flush()
