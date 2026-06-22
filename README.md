@@ -2,6 +2,8 @@
 
 一个面向 macOS 桌面的 B站视频下载工具。基于开源的 [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) 下载能力，包装成更易用、更好看的图形界面（GUI）应用。
 
+![Yabi 主界面](docs/screenshots/main.png)
+
 ![Yabi](https://img.shields.io/badge/license-MIT-blue) ![macOS arm64](https://img.shields.io/badge/macOS-arm64-black) ![Tauri 2](https://img.shields.io/badge/Tauri-2-orange)
 
 ## 架构
